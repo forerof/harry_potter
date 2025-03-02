@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa - Hogwarts</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/sombrero.ico">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+<body>
+    <header class="header">
+        <img src="./assets/img/hogwarts.png">
+        <div class="separator"></div>
+        <nav class="nav">
+            <button class="menu-toggle" aria-label="Abrir menú">☰</button>
+            <ul class="menu">
+                <li><a href="./index.html">Inicio</a></li>
+                <li><a href="./characters.html">Personajes</a></li>
+                <li><a href="./activities.html">Actividades</a></li>
+                <li><a href="./history.html">Historia</a></li>
+                <li><a href="./mapa-interactivo.html">Mapa</a></li>
+                <li><a href="./credits.html">Créditos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content-map">
+        <div class="map-interactive">
+            <h1>Mapa Interactivo de Hogwarts</h1>
+            <div id="map"></div> <!-- Contenedor del mapa -->
+        </div>
+    </div>
+    <footer class="footer">
+        <p>© 2024 damarys</p>
+    </footer>
+    <!-- Alerta personalizada -->
+    <div id="custom-alert" class="custom-alert">
+        <div class="alert-content">
+            <h3 class="alert-title">¡Atención!</h3>
+            <p class="alert-message">Este es un mensaje de alerta importante.</p>
+            <button class="alert-close">Cerrar</button>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="./assets/js/map.js"></script> <!-- Script para el mapa -->
+</body>
+</html>

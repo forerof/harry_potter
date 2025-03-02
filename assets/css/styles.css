@@ -1,0 +1,682 @@
+:root {
+    --primary-color: #313030;
+    --title-color: #FFFFFF;
+    --text-color: #c7c7c7;
+    --bg-color: #18150D;
+    --bg-trasluci: #00000074;
+    --bg-trasluci-2: #000000b9;
+
+    --medium-size: 1.5rem;
+    --large-size: 2rem;
+}
+
+@font-face {
+    font-family: 'Jersey';
+    src: url('../fonts/jaro-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body {
+    font-family: 'Jersey', sans-serif;
+    /* Usa la fuente y una alternativa */
+    margin: 0;
+    padding: 0;
+    /* Opcional, por si hay relleno también */
+    color: var(--text-color);
+    background-color: var(--bg-color);
+
+    display: flex;
+    flex-direction: column;
+    /* Apilar elementos verticalmente */
+    min-height: 100vh;/
+}
+
+a {
+    color: var(--text-color);
+    /* Color normal del enlace */
+    text-decoration: none;
+    /* Quita el subrayado */
+}
+
+/* Evita que los enlaces visitados cambien de color */
+a:visited {
+    color: white;
+    /* Mantiene el mismo color */
+}
+
+.header {
+    width: 100%;
+    height: 25vh;
+    /* 25% de la altura de la pantalla */
+    background: linear-gradient(180deg, #110b0e 0%, #373737 100%);
+    position: relative;
+    overflow: hidden;
+    /* Evita que las imágenes sobresalgan */
+}
+
+.header img {
+    position: absolute;
+    bottom: 0;
+    height: 40%;
+    /* Ajusta la altura del header */
+    width: auto;
+    /* Mantiene la proporción */
+    left: 50%;
+    transform: translateX(-70%);
+    /* Mueve la imagen más a la izquierda */
+}
+
+.separator {
+    width: 100%;
+    /* Longitud de la línea */
+    height: 2px;
+    /* Grosor de la línea */
+    background-color: white;
+    /* Color de la línea */
+    position: absolute;
+    top: 8vh;
+    /* 8% de la altura total de la pantalla */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Centra la línea */
+}
+
+/* 🔹 Estilos del menú */
+.nav {
+    position: absolute;
+    top: 2vh;
+    /* Ajuste según diseño */
+    right: 2vw;
+}
+
+/* Estilos para la ventana del menú */
+.menu {
+    position: fixed;
+    /* Ocupa toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.89);
+    /* Fondo oscuro traslúcido */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    z-index: 9999;
+    /* Asegura que esté por encima de todo */
+    /* Espaciado entre enlaces */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    transform: translateY(-100%);
+    /* Oculto fuera de pantalla */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Estilos para los enlaces */
+.menu a {
+    text-decoration: none;
+    font-size: var(--medium-size);
+    /* Tamaño media */
+    color: var(--title-color);
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--title-color);
+}
+
+/* Mostrar menú cuando está activo */
+.menu.active {
+    transform: translateY(0);
+    /* Aparece en pantalla */
+}
+
+/* Estilos del botón hamburguesa */
+.menu-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: var(--title-color);
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    z-index: 1000;
+}
+
+/* Estilos del botón de cerrar (cuando el menú está abierto) */
+.menu-toggle.close {
+    position: fixed;
+    font-size: 1.5em;
+    right: 0x;
+    z-index: 10000;
+    /* Asegura que esté por encima del menú */
+}
+
+/* Estilos para la sección home */
+.home {
+    display: flex;
+    flex-direction: column; /* Apilar elementos verticalmente */
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+    padding: 20px; /* Añadir un poco de padding */
+    max-width: 800px; /* Limitar el ancho del contenedor */
+    margin: 0 auto; /* Centrar el contenedor en la página */
+}
+
+.home-target {
+    width: 100%; /* Ocupar todo el ancho del contenedor */
+    height: 300px; /* Altura fija */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px; /* Bordes redondeados */
+    background-color: #222; /* Fondo oscuro */
+    position: relative; /* Necesario para posicionar el texto dentro */
+}
+
+.home-target img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Escala la imagen sin deformarla */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+}
+
+.home-text {
+    margin-top: 1rem; /* Espacio entre la imagen y el texto */
+    color: var(--text-color);
+    max-width: 90%; /* Limitar el ancho para que no se vea muy extendido */
+}
+
+.home-text h1 {
+    text-align: center; /* Centrar el texto */
+    font-size: 2rem; /* Tamaño del título */
+    margin-bottom: 0.5rem; /* Espacio entre el título y el párrafo */
+    color: var(--title-color); /* Color del título */
+}
+
+.home-text p {
+    text-align: justify; /* Centrar el texto */
+    font-size: 1.2rem; /* Tamaño del texto del párrafo */
+    line-height: 1.6; /* Espaciado entre líneas */
+    margin-bottom: 1.5rem; /* Espacio debajo del párrafo */
+    color: var(--text-color);
+}
+
+.home-text a {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid white; /* Borde blanco */
+    border-radius: 30px; /* Esquinas redondeadas */
+    color: white; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.home-text a:hover {
+    background-color: white;
+    color: #222; /* Color de contraste al hacer hover */
+}
+
+.characters h1 {
+    padding: var(--medium-size);
+    /* Aplicar un margen interno */
+    color: var(--title-color);
+}
+
+.character {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    /* Centrado vertical en toda la pantalla */
+    flex-direction: column;
+    /* Apilar las tarjetas */
+}
+
+.character-target {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #222;
+    position: relative;
+    /* Necesario para posicionar el texto dentro */
+}
+
+/* Capa traslúcida */
+.character-target::before {
+    content: "";
+    /* Necesario para que el pseudo-elemento exista */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-trasluci);
+    opacity: 0.3;
+    /* Ajusta la opacidad según preferencia */
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* Asegura que la capa esté encima de la imagen */
+}
+
+.character-target img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Escala la imagen sin deformarla */
+    object-position: center;
+    /* Centra la imagen dentro del contenedor */
+}
+
+.character-target span {
+    position: absolute;
+    bottom: 10px;
+    /* Ajusta según preferencia */
+    left: 50%;
+    transform: translateX(-50%);
+    /* Centra horizontalmente */
+    color: var(--title-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: var(--large-size);
+    text-align: center;
+    width: 80%;
+    /* Ajusta el ancho del texto */
+}
+
+.activities h1 {
+    padding: var(--medium-size);
+    /* Aplicar un margen interno */
+    color: var(--title-color);
+}
+
+.activity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    /* Centrado vertical en toda la pantalla */
+    flex-direction: column;
+    /* Apilar las tarjetas */
+}
+
+.activity-target {
+    width: 300px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 20px;
+    background-color: #222;
+    position: relative;
+    /* Necesario para posicionar el texto dentro */
+}
+
+/* Capa traslúcida */
+.activity-target::before {
+    content: "";
+    /* Necesario para que el pseudo-elemento exista */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-trasluci);
+    opacity: 0.3;
+    /* Ajusta la opacidad según preferencia */
+    border-radius: 20px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* Asegura que la capa esté encima de la imagen */
+}
+
+.activity-target img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* Escala la imagen sin deformarla */
+    object-position: center;
+    /* Centra la imagen dentro del contenedor */
+}
+
+.activity-target span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--title-color);
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: var(--large-size);
+    text-align: center;
+    width: 80%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.history {
+    display: flex;
+    flex-direction: column;
+    /* Apilar el contenido verticalmente */
+    align-items: center;
+    /* Centrar horizontalmente */
+    justify-content: center;
+    /* Centrar verticalmente */
+    text-align: justify;
+    /* Centrar el texto */
+    padding: 20px;
+    /* Añadir un poco de padding */
+    max-width: 80%;
+    /* Limitar el ancho del contenedor */
+    margin: 0 auto;
+    /* Centrar el contenedor en la página */
+}
+
+.history h1,h2 {
+    color: var(--title-color);
+}
+
+.history p {
+    columns: var(--text-color);
+}
+/* Estilos para la navegación interna */
+.internal-nav {
+    display: block;
+    /* Fondo semi-transparente */
+    padding: 10px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 800px;
+    /* Limitar el ancho para que no se extienda demasiado */
+}
+
+.internal-nav ul {
+    display: block;
+    list-style: none;
+    /* Quitar viñetas */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    /* Permitir que los elementos se envuelvan en pantallas pequeñas */
+    justify-content: center;
+    /* Centrar los elementos */
+    gap: 10px;
+    /* Espacio entre elementos */
+}
+
+.internal-nav a {
+    color: var(--title-color);
+    /* Color del texto */
+    text-decoration: none;
+    /* Quitar subrayado */
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    /* Fondo oscuro */
+    transition: background-color 0.3s ease;
+
+
+}
+
+.content-map{
+    display: flex;
+    justify-content: center;
+}
+
+.map-interactive{
+    width: 100%;
+    max-width: 90%;
+    padding: 0 auto;
+}
+
+#map {
+    height: 50vh; /* Altura del mapa */
+    width: 90%;
+    border-radius: 20px; /* Bordes redondeados */
+    margin: 20px auto; /* Centrar el mapa */
+}
+
+.leaflet-container {
+    background: transparent !important;
+}
+
+.credits {
+    display: flex;
+    flex-direction: column;
+    /* Apilar el contenido verticalmente */
+    /* align-items: center; */
+    /* Centrar horizontalmente */
+    justify-content: center;
+    /* Centrar verticalmente */
+    text-align: justify;
+    /* Centrar el texto */
+    padding: 20px;
+    /* Añadir un poco de padding */
+    max-width: 80%;
+    /* Limitar el ancho del contenedor */
+    margin: 0 auto;
+    /* Centrar el contenedor en la página */
+}
+
+.footer {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    /* Centra el contenido horizontalmente */
+    align-items: center;
+    /* Centra el contenido verticalmente */
+    margin-top: auto;
+    /* Empuja el footer hacia abajo cuando hay poco contenido */
+}
+
+.footer p {
+    color: white;
+    /* Color del texto */
+    margin: 0;
+    /* Evita márgenes adicionales */
+    font-size: 14px;
+}
+
+/* Estilos para la alerta personalizada */
+.custom-alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--bg-trasluci-2);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    /* max-width: 50%; */
+    width: 60%;
+    text-align: center;
+    z-index: 10000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.532);
+}
+
+.alert-title {
+    font-size: var(--medium-size);
+    color: var(--title-color);
+    margin-bottom: 10px;
+}
+
+.alert-message {
+    font-size: 1rem;
+    text-align: justify;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.alert-close {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--title-color);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.alert-close:hover {
+    background-color: var(--bg-color);
+}
+
+/* Estilos para pantallas grandes (>800px) */
+@media (min-width: 800px) {
+    .menu-toggle {
+        display: none;
+        /* Ocultar el botón de menú */
+    }
+
+    .menu {
+        position: static;
+        /* Restablecer la posición */
+        transform: translateY(0);
+        /* Mostrar el menú */
+        flex-direction: row;
+        /* Mostrar los elementos en línea */
+        justify-content: flex-end;
+        /* Alinear a la derecha */
+        background: none;
+        /* Quitar el fondo oscuro */
+        height: auto;
+        /* Altura automática */
+        width: auto;
+        /* Ancho automático */
+        gap: 20px;
+        /* Espacio entre elementos */
+        padding-right: 20px;
+        /* Añadir un poco de padding a la derecha */
+    }
+
+    .menu li {
+        display: inline-block;
+        /* Mostrar los elementos en línea */
+    }
+
+    .menu a {
+        font-size: 1rem;
+        /* Tamaño de fuente más pequeño */
+        color: var(--text-color);
+        /* Color del texto */
+    }
+
+    .menu a:hover {
+        color: var(--title-color);
+        /* Cambiar color al pasar el mouse */
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        /* Espacio entre logo y menú */
+        align-items: center;
+        /* Centrar verticalmente */
+        padding: 0;
+        /* Eliminar el padding para no afectar la imagen */
+    }
+
+    /* Asegurar que la imagen del encabezado no se mueva */
+    .header img {
+        position: absolute;
+        /* Mantener la posición absoluta */
+        bottom: 0;
+        /* Mantener en la parte inferior */
+        left: 50%;
+        /* Centrar horizontalmente */
+        transform: translateX(-70%);
+        /* Ajustar la posición */
+        height: 40%;
+        /* Mantener la altura original */
+    }
+
+    .grid-columns{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columnas */
+        gap: 20px;
+        /* Espacio entre tarjetas */
+        padding: 20px;
+        /* Añadir un poco de padding */
+    }
+
+    .home {
+        flex-direction: row; /* Mostrar la imagen y el texto en línea */
+        gap: 40px; /* Espacio entre la imagen y el texto */
+        align-items: center; /* Centrar verticalmente */
+        max-width: 100%; /* Aumentar el ancho máximo */
+    }
+
+    .home-target {
+        width: 60%; /* La imagen ocupa la mitad del espacio */
+        height: 400px; /* Aumentar la altura de la imagen */
+    }
+
+    .home-text {
+        width: 50%; /* El texto ocupa la otra mitad del espacio */
+        text-align: left; /* Alinear el texto a la izquierda */
+        margin-top: 0; /* Eliminar el margen superior */
+    }
+
+    .home-text h1 {
+        text-align: start;
+        font-size: 2.5rem; /* Tamaño de fuente más grande para el título */
+    }
+
+    .home-text p {
+        font-size: 1.2rem; /* Tamaño de fuente más grande para el párrafo */
+    }
+
+    .home-text a {
+        font-size: 1.2rem; /* Tamaño de fuente más grande para el botón */
+    }
+
+    .character {
+        height: auto;
+        /* Altura automática */
+        margin-bottom: 0;
+        /* Eliminar el margen inferior */
+    }
+
+    .character-target {
+        width: 100%;
+        /* Ocupar todo el ancho del contenedor */
+        height: 300px;
+        /* Mantener la altura fija */
+    }
+
+    .activity {
+        height: auto;
+        margin-bottom: 0;
+       
+        /* Eliminar el margen inferior */
+    }
+
+    .activity-target {
+        width: 100%;
+        /* Ocupar todo el ancho del contenedor */
+        height: 200px;
+        /* Mantener la altura fija */
+    }
+
+    #map {
+        height: 60vh;
+    }
+}
