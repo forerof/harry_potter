@@ -56,7 +56,7 @@ if (window.innerWidth > 800) {
 
 // Crear un icono personalizado
 const customIcon = L.icon({
-    iconUrl: './assets/img/marker.png', // Ruta de la imagen
+    iconUrl: '../assets/img/marker.png', // Ruta de la imagen
     iconSize: [78, 68], // Tamaño del icono (ancho, alto)
     iconAnchor: [19, 38], // Punto de anclaje (centro inferior)
     popupAnchor: [0, -38], // Punto donde se abre el popup (relativo al iconAnchor)
